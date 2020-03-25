@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 public class Rotations {  // first letter is which second letter direction...
     public static void r(int i,Side[] c, Side[] SA){      // Right
         Piece[] red = SA[0].Pieces[i];

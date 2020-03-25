@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 public class Cube {
 
     public static final String Reset = "\u001B[0m";

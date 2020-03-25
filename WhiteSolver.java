@@ -1,7 +1,4 @@
-import java.util.Scanner;
-
 public class WhiteSolver extends SolverInterface {
-public static Scanner in = new Scanner(System.in);
     @Override
     public void solve() {
         BottomMiddle();
@@ -13,6 +10,11 @@ public static Scanner in = new Scanner(System.in);
         SideMiddles();
         System.out.println("\nSide Middles: ");
         this.c.Print();
+        SideCoroners();
+        System.out.println("\nSide Coroners: ");
+        this.c.Print();
+
+
     }
 
     public void BottomMiddle(){
@@ -35,6 +37,7 @@ public static Scanner in = new Scanner(System.in);
             Rotations.md(this.c.cube, this.c.DiagonalStripAry);
         }
     }
+
     public void Clear(int i, int j){
         while (this.c.cube[5].Pieces[i][j].Color.equals(Cube.White)){
             Rotations.br(this.c.cube,this.c.StripAry);
@@ -118,6 +121,71 @@ public static Scanner in = new Scanner(System.in);
         }
         while (!this.c.cube[1].Pieces[1][1].Color.equals(Cube.Red)) {
             Rotations.acr(this.c.cube, this.c.StripAry);
+        }
+    }
+
+    public void SideCoroners(){
+        for (int j = 0; j < 2; j++) {
+            for (int i = 0; i < 4; i++) {
+                if (this.c.cube[1].Pieces[2][2].Color.equals(Cube.White)) {
+                    Rotations.ru(this.c.cube, this.c.DiagonalStripAry);
+                    Rotations.ur(this.c.cube, this.c.StripAry);
+                    Rotations.rd(this.c.cube, this.c.DiagonalStripAry);
+                }
+                if (this.c.cube[1].Pieces[2][0].Color.equals(Cube.White)) {
+                    Rotations.lu(this.c.cube, this.c.DiagonalStripAry);
+                    Rotations.ul(this.c.cube, this.c.StripAry);
+                    Rotations.ld(this.c.cube, this.c.DiagonalStripAry);
+                }
+                Rotations.acr(this.c.cube, this.c.StripAry);
+            }
+            for (int i = 0; i < 8; i++) {
+                if (this.c.cube[1].Pieces[0][2].Color.equals(Cube.White)) {
+                    while (!this.c.cube[2].Pieces[1][1].Color.equals(this.c.cube[2].Pieces[0][0].Color)) {
+                        Rotations.br(this.c.cube, this.c.StripAry);
+                        Rotations.mr(this.c.cube, this.c.StripAry);
+                    }
+                    Rotations.ul(this.c.cube, this.c.StripAry);
+                    Rotations.ru(this.c.cube, this.c.DiagonalStripAry);
+                    Rotations.ur(this.c.cube, this.c.StripAry);
+                    Rotations.rd(this.c.cube, this.c.DiagonalStripAry);
+                }
+                Rotations.ur(this.c.cube, this.c.StripAry);
+            }
+            for (int i = 0; i < 8; i++) {
+                if (this.c.cube[1].Pieces[0][0].Color.equals(Cube.White)) {
+                    while (!this.c.cube[4].Pieces[1][1].Color.equals(this.c.cube[4].Pieces[0][2].Color)) {
+                        Rotations.br(this.c.cube, this.c.StripAry);
+                        Rotations.mr(this.c.cube, this.c.StripAry);
+                    }
+                    Rotations.acr(this.c.cube, this.c.StripAry);
+                    Rotations.ru(this.c.cube, this.c.DiagonalStripAry);
+                    Rotations.ul(this.c.cube, this.c.StripAry);
+                    Rotations.rd(this.c.cube, this.c.DiagonalStripAry);
+                }
+                Rotations.ur(this.c.cube, this.c.StripAry);
+            }
+            for (int i = 0; i < 8; i++) {
+                if (this.c.cube[0].Pieces[2][2].Color.equals(Cube.White)) {
+                    while (!this.c.cube[1].Pieces[1][1].Color.equals(this.c.cube[1].Pieces[0][2].Color)) {
+                        Rotations.br(this.c.cube, this.c.StripAry);
+                        Rotations.mr(this.c.cube, this.c.StripAry);
+                    }
+                    Rotations.br(this.c.cube, this.c.StripAry);
+                    Rotations.mr(this.c.cube, this.c.StripAry);
+
+                    Rotations.ru(this.c.cube, this.c.DiagonalStripAry);
+                    Rotations.ur(this.c.cube, this.c.StripAry);
+                    Rotations.ur(this.c.cube, this.c.StripAry);
+
+                    Rotations.rd(this.c.cube, this.c.DiagonalStripAry);
+                    Rotations.ur(this.c.cube, this.c.StripAry);
+                    Rotations.ru(this.c.cube, this.c.DiagonalStripAry);
+                    Rotations.ul(this.c.cube, this.c.StripAry);
+                    Rotations.rd(this.c.cube, this.c.DiagonalStripAry);
+                }
+                Rotations.ur(this.c.cube, this.c.StripAry);
+            }
         }
     }
 }

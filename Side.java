@@ -24,7 +24,6 @@ public class Side {
         for (Piece[] row: this.Pieces) {
             for (int i = 0; i < 3; i++){
                 row[i] = new Piece(this.Color);
-//                }
             }
         }
     }
